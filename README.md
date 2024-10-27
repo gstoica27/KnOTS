@@ -21,7 +21,7 @@ Our repository is built off of python 3, with dependencies defined in the "conda
 To run any experiment, it is recommended to create an evnironment using the dependencies provided. 
 KnOTS relies on pretrained checkpoints to perform merging, and this repository contains several training scripts you can utilize to finetune different models from a common pretrained initializations. 
 Additionally, you may also experiment with your own already pre-trained models. 
-We also release our model checkpoints here (coming soon).
+We also release our model checkpoints [here](https://gtvault-my.sharepoint.com/:f:/g/personal/pramesh39_gatech_edu/ElwcOO7eMGJKmm9QQKchbzIBkSqtLZyydSJCiER1W8T1Aw?e=nZeFun).
 
 ### Installation
 Create a virtual environment and install the dependencies:
