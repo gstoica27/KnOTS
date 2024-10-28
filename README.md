@@ -2,7 +2,7 @@
 
 This is the official implementation of **KnOTS** from our paper:
 
-**[Model Merging with SVD to Tie the KnOTS](https://arxiv.org/abs/2305.03053)**  
+**[Model Merging with SVD to Tie the KnOTS](https://arxiv.org/abs/2410.19735)**  
 [George Stoica](https://gstoica27.github.io/)$^{*1}$, 
 [Pratik Ramesh](https://www.linkedin.com/in/pratik-ramesh-234471114/)$^{*1}$,
 [Boglarka Ecsedi](https://www.linkedin.com/in/boglarka-ecsedi/)$^{1}$,
@@ -11,7 +11,7 @@ This is the official implementation of **KnOTS** from our paper:
 
 $^1$ Georgia Institute of Technology, $^2$ IBM Research, MIT, \*: Equal Contribution.
 
-_[GitHub](https://github.com/gstoica27/KnOTS)_ | _[arXiv](https://arxiv.org/abs/2305.03053)_ | _[BibTeX](#citation)_
+_[GitHub](https://github.com/gstoica27/KnOTS)_ | _[arXiv](https://arxiv.org/abs/2410.19735)_ | _[BibTeX](#citation)_
 
 ![KnOTS Concept Figure](figures/concept.png)
 
@@ -83,4 +83,12 @@ You can also define your own train/evaluation script and may use our scripts as 
 
 ## Citation
 
-If you use KnOTS or this codebase in your work, please cite: TBA
+If you use KnOTS or this codebase in your work, please cite: 
+```
+@article{stoica2024knots,
+      title={Model Merging with SVD to Tie the Knots}, 
+      author={Stoica, George and Ramesh, Pratik and Ecsedi, Boglarka and Choshen, Leshem and Hoffman, Judy},
+      journal={arXiv},
+      year={2024},
+}
+```
