@@ -291,8 +291,7 @@ class SVDMerger(TaskMerger):
             sd[key] = (U @ sV_sd[key]).to(torch.float32)
         return sd
         
-    def apply_svd(self, ft_params, s_on_V=True, concat_across_output = True):
-        print(f"s_on_V: {s_on_V}")
+    def apply_svd(self, ft_params, concat_across_output = True):
         UsV_dict = {}
         basis_dict = {} # basis for reconstruction
         s_compositions_dict = [dict() for _ in range(len(ft_params))]
@@ -315,12 +314,8 @@ class SVDMerger(TaskMerger):
             sV_concat = V
             Vs = list(torch.split(sV_concat, cat_hidden_dim, dim=1))
             for idx, V in enumerate(Vs):
-                if s_on_V:
-                    V = torch.diag(s) @ V
-                    s_model = s / s
-                
-                else:
-                    s_model = s
+                V = torch.diag(s) @ V # Simple and safe for all merging methods we use.
+                s_model = s / s
 
                 s_compositions_dict[idx][key] = s_model.cpu()
                 V_compositions_dict[idx][key] = V.cpu()
@@ -369,8 +364,7 @@ class SVDMerger(TaskMerger):
         ftms_others, ftms_mats = self.remove_others(ftms_task_mats)
 
         U, task_Ss, task_sVs, UsV_dict = self.apply_svd(
-            ftms_mats, 
-            s_on_V=merge_config.get('s_on_V', True), 
+            ftms_mats,
             concat_across_output = merge_config.get('concat_across_output', True),
         )
             
