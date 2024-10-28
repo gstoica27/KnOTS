@@ -9,7 +9,7 @@ This is the official implementation of **KnOTS** from our paper:
 [Leshem Choshen](https://ktilana.wixsite.com/leshem-choshen)$^2$,
 [Judy Hoffman](https://faculty.cc.gatech.edu/~judy/)$^1$
 
-$^1$ Georgia Institute of Technology, $^2$ IBM Research, MIT, \*: Equal Contribution.
+$^1$ Georgia Tech, $^2$ IBM Research \& MIT, \* Equal Contribution.
 
 _[GitHub](https://github.com/gstoica27/KnOTS)_ | _[arXiv](https://arxiv.org/abs/2410.19735)_ | _[BibTeX](#citation)_
 
