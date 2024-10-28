@@ -66,7 +66,6 @@ config = {
     'task_merge_config': {
         'ingredients_path' : INGREDIENTS_PATH,
         'representation': 'vector',
-        's_on_V': True,
         'merge_method': 'tv',
         'merging_type': 'sum',
         'merge_other_params' : False,

@@ -109,10 +109,7 @@ config = {
     },
     'task_merge_config': {
         'representation': 'vector',
-        'ptm_usage': 'None',
-        'sign_resolve_mode': 'sum_of_values',
-        'scaling_coeffs': .3, #[.6],
-        'topK': 100,
+        'scaling_coeffs': .3,
         'merge_method': 'tv',
         'merging_type': 'mean',
         'dare' : False,
