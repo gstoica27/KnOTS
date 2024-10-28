@@ -3,8 +3,8 @@
 This is the official implementation of **KnOTS** from our paper:
 
 **[Model Merging with SVD to Tie the KnOTS](https://arxiv.org/abs/2410.19735)**  
-[George Stoica](https://gstoica27.github.io/)$^{*1}$, 
-[Pratik Ramesh](https://www.linkedin.com/in/pratik-ramesh-234471114/)$^{*1}$,
+[George Stoica](https://gstoica27.github.io/)$^{1*}$, 
+[Pratik Ramesh](https://www.linkedin.com/in/pratik-ramesh-234471114/)$^{1*}$,
 [Boglarka Ecsedi](https://www.linkedin.com/in/boglarka-ecsedi/)$^{1}$,
 [Leshem Choshen](https://ktilana.wixsite.com/leshem-choshen)$^2$,
 [Judy Hoffman](https://faculty.cc.gatech.edu/~judy/)$^1$
