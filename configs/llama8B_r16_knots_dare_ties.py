@@ -66,7 +66,6 @@ config = {
     'task_merge_config': {
         'ingredients_path' : INGREDIENTS_PATH,
         'representation': 'svd-vector',
-        's_on_V': True,
         'concat_across_output': True,   # When True: W_concat is of size O x nI; False: W_concat is of size I x nO
         'merge_method': 'ties',
         'sign_resolve_mode': 'sum_of_values',

@@ -110,7 +110,6 @@ config = {
     'task_merge_config': {
         'representation': 'svd-vector',
         'sign_resolve_mode': 'sum_of_values',
-        's_on_V': True,
         'scaling_coeffs': .5, #[.6],
         'topK': 20,
         'merge_method': 'ties',

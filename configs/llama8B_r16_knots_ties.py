@@ -66,17 +66,14 @@ config = {
     'task_merge_config': {
         'ingredients_path' : INGREDIENTS_PATH,
         'representation': 'svd-vector',
-        'ptm_usage': 'None',
         'sign_resolve_mode': 'sum_of_values',
-        's_on_V': True,
         'topK': 100,
         'merge_method': 'ties',
         'merging_type': 'mean',
-        'merge_other_params' : False,
         'scaling_coeffs': [.5],
         'concat_across_output': True,   # When True: W_concat is of size O x nI; False: W_concat is of size I x nO
-        'normalize_Vs_per_model': False,
         'dare' : False,
+        'dare_pruning_coeffs': 0.0
     },
     'eval_type': 'logits',
 }

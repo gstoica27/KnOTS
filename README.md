@@ -2,16 +2,16 @@
 
 This is the official implementation of **KnOTS** from our paper:
 
-**[Model Merging with SVD to Tie the KnOTS](https://arxiv.org/abs/2305.03053)**  
-[George Stoica](https://gstoica27.github.io/)$^{*1}$, 
-[Pratik Ramesh](https://www.linkedin.com/in/pratik-ramesh-234471114/)$^{*1}$,
+**[Model Merging with SVD to Tie the KnOTS](https://arxiv.org/abs/2410.19735)**  
+[George Stoica](https://gstoica27.github.io/)$^{1*}$, 
+[Pratik Ramesh](https://www.linkedin.com/in/pratik-ramesh-234471114/)$^{1*}$,
 [Boglarka Ecsedi](https://www.linkedin.com/in/boglarka-ecsedi/)$^{1}$,
 [Leshem Choshen](https://ktilana.wixsite.com/leshem-choshen)$^2$,
 [Judy Hoffman](https://faculty.cc.gatech.edu/~judy/)$^1$
 
-$^1$ Georgia Institute of Technology, $^2$ IBM Research, MIT, \*: Equal Contribution.
+$^1$ Georgia Tech, $^2$ IBM Research \& MIT, \* Equal Contribution.
 
-_[GitHub](https://github.com/gstoica27/KnOTS)_ | _[arXiv](https://arxiv.org/abs/2305.03053)_ | _[BibTeX](#citation)_
+_[GitHub](https://github.com/gstoica27/KnOTS)_ | _[arXiv](https://arxiv.org/abs/2410.19735)_ | _[BibTeX](#citation)_
 
 ![KnOTS Concept Figure](figures/concept.png)
 
@@ -21,7 +21,7 @@ Our repository is built off of python 3, with dependencies defined in the "conda
 To run any experiment, it is recommended to create an evnironment using the dependencies provided. 
 KnOTS relies on pretrained checkpoints to perform merging, and this repository contains several training scripts you can utilize to finetune different models from a common pretrained initializations. 
 Additionally, you may also experiment with your own already pre-trained models. 
-We also release our model checkpoints [here](https://gtvault-my.sharepoint.com/:f:/g/personal/pramesh39_gatech_edu/ElwcOO7eMGJKmm9QQKchbzIBkSqtLZyydSJCiER1W8T1Aw?e=nZeFun).
+We also release our model checkpoints [here](https://gtvault-my.sharepoint.com/:f:/g/personal/pramesh39_gatech_edu/ElwcOO7eMGJKmm9QQKchbzIBXd-YvCnFMiBZ7mFDJDXqGw?e=qru79M).
 
 ### Installation
 Create a virtual environment and install the dependencies:
@@ -83,4 +83,12 @@ You can also define your own train/evaluation script and may use our scripts as 
 
 ## Citation
 
-If you use KnOTS or this codebase in your work, please cite: TBA
+If you use KnOTS or this codebase in your work, please cite: 
+```
+@article{stoica2024knots,
+      title={Model Merging with SVD to Tie the Knots}, 
+      author={Stoica, George and Ramesh, Pratik and Ecsedi, Boglarka and Choshen, Leshem and Hoffman, Judy},
+      journal={arXiv},
+      year={2024},
+}
+```
