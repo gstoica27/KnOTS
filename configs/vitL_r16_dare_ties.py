@@ -87,15 +87,25 @@ config = {
         'base_type': "openai/clip-vit-large-patch14",
         'cachedir': CACHE_DIR,
         'bases': [
-            #ViT-L-14 model, rank-16 models
-            f'{MODEL_DIR}/stanford_cars_lr_0.0003_epochs_15_wd_0.0001_label_smoothing_0.0_rank16.pt',  
-            f'{MODEL_DIR}/dtd_lr_0.0003_epochs_15_wd_0.0001_label_smoothing_0.0_rank16.pt',
-            f'{MODEL_DIR}/eurosat_lr_0.0003_epochs_8_wd_0.0001_label_smoothing_0.0_rank16.pt',  
-            f'{MODEL_DIR}/gtsrb_lr_0.0003_epochs_5_wd_0.0001_label_smoothing_0.0_rank16.pt',  
-            f'{MODEL_DIR}/mnist_lr_0.0003_epochs_2_wd_0.0001_label_smoothing_0.0_rank16.pt',  
-            f'{MODEL_DIR}/resisc45_lr_0.0003_epochs_7_wd_0.0001_label_smoothing_0.0_rank16.pt',
-            f'{MODEL_DIR}/sun397_lr_0.0003_epochs_8_wd_0.0001_label_smoothing_0.0_rank16.pt',
-            f'{MODEL_DIR}/svhn_lr_0.0003_epochs_5_wd_0.0001_label_smoothing_0.0_rank16.pt',
+            # Path to model checkpoints stored locally - ViT-L-14, rank-16 models
+            # f'{MODEL_DIR}/stanford_cars_lr_0.0003_epochs_15_wd_0.0001_label_smoothing_0.0_rank16.pt',  
+            # f'{MODEL_DIR}/dtd_lr_0.0003_epochs_15_wd_0.0001_label_smoothing_0.0_rank16.pt',
+            # f'{MODEL_DIR}/eurosat_lr_0.0003_epochs_8_wd_0.0001_label_smoothing_0.0_rank16.pt',  
+            # f'{MODEL_DIR}/gtsrb_lr_0.0003_epochs_5_wd_0.0001_label_smoothing_0.0_rank16.pt',  
+            # f'{MODEL_DIR}/mnist_lr_0.0003_epochs_2_wd_0.0001_label_smoothing_0.0_rank16.pt',  
+            # f'{MODEL_DIR}/resisc45_lr_0.0003_epochs_7_wd_0.0001_label_smoothing_0.0_rank16.pt',
+            # f'{MODEL_DIR}/sun397_lr_0.0003_epochs_8_wd_0.0001_label_smoothing_0.0_rank16.pt',
+            # f'{MODEL_DIR}/svhn_lr_0.0003_epochs_5_wd_0.0001_label_smoothing_0.0_rank16.pt',
+
+            # HF models IDs
+            'hoffman-lab/KnOTS-ViT-L-14_lora_R16_stanford_cars',
+            'hoffman-lab/KnOTS-ViT-L-14_lora_R16_dtd',
+            'hoffman-lab/KnOTS-ViT-L-14_lora_R16_eurosat',
+            'hoffman-lab/KnOTS-ViT-L-14_lora_R16_gtsrb',
+            'hoffman-lab/KnOTS-ViT-L-14_lora_R16_mnist',
+            'hoffman-lab/KnOTS-ViT-L-14_lora_R16_resisc45',
+            'hoffman-lab/KnOTS-ViT-L-14_lora_R16_sun397',
+            'hoffman-lab/KnOTS-ViT-L-14_lora_R16_svhn',
             
         ],
         'ft_config': {

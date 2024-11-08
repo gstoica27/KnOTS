@@ -87,15 +87,25 @@ config = {
         'base_type': "openai/clip-vit-base-patch32",
         'cachedir': CACHE_DIR,
         'bases': [
-            #rank-16 8 vision tasks
-            f'{MODEL_DIR}/stanford_cars_lora-r16-alpha16-dropout0.1.pt',
-            f'{MODEL_DIR}/dtd_lora-r16-alpha16-dropout0.1.pt',
-            f'{MODEL_DIR}/eurosat_lora-r16-alpha16-dropout0.1.pt',
-            f'{MODEL_DIR}/gtsrb_lora-r16-alpha16-dropout0.1.pt',
-            f'{MODEL_DIR}/mnist_lora-r16-alpha16-dropout0.1.pt',
-            f'{MODEL_DIR}/resisc45_lora-r16-alpha16-dropout0.1.pt',
-            f'{MODEL_DIR}/sun397_lora-r16-alpha16-dropout0.1.pt',
-            f'{MODEL_DIR}/svhn_lora-r16-alpha16-dropout0.1.pt',
+            # Path to model checkpoints stored locally - rank-16 8 vision tasks
+            # f'{MODEL_DIR}/stanford_cars_lora-r16-alpha16-dropout0.1.pt',
+            # f'{MODEL_DIR}/dtd_lora-r16-alpha16-dropout0.1.pt',
+            # f'{MODEL_DIR}/eurosat_lora-r16-alpha16-dropout0.1.pt',
+            # f'{MODEL_DIR}/gtsrb_lora-r16-alpha16-dropout0.1.pt',
+            # f'{MODEL_DIR}/mnist_lora-r16-alpha16-dropout0.1.pt',
+            # f'{MODEL_DIR}/resisc45_lora-r16-alpha16-dropout0.1.pt',
+            # f'{MODEL_DIR}/sun397_lora-r16-alpha16-dropout0.1.pt',
+            # f'{MODEL_DIR}/svhn_lora-r16-alpha16-dropout0.1.pt',
+
+            #HF models IDs
+            'hoffman-lab/KnOTS-ViT-B-32_lora_R16_stanford_cars',
+            'hoffman-lab/KnOTS-ViT-B-32_lora_R16_dtd',
+            'hoffman-lab/KnOTS-ViT-B-32_lora_R16_eurosat',
+            'hoffman-lab/KnOTS-ViT-B-32_lora_R16_gtsrb',
+            'hoffman-lab/KnOTS-ViT-B-32_lora_R16_mnist',
+            'hoffman-lab/KnOTS-ViT-B-32_lora_R16_resisc45',
+            'hoffman-lab/KnOTS-ViT-B-32_lora_R16_sun397',
+            'hoffman-lab/KnOTS-ViT-B-32_lora_R16_svhn',
         ],
         'ft_config': {
             'type': 'lora',

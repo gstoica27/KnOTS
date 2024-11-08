@@ -40,13 +40,21 @@ config = {
         'ptm_path': PTM_PATH,
         'cachedir': CACHE_DIR,
         'bases': [
-            f'{MODEL_DIR}/llama/selected/snli.pt',
-            f'{MODEL_DIR}/llama/selected/mnli.pt',
-            f'{MODEL_DIR}/llama/selected/sick.pt',
-            f'{MODEL_DIR}/llama/selected/qnli.pt',
-            f'{MODEL_DIR}/llama/selected/rte.pt',
-            f'{MODEL_DIR}/llama/selected/scitail.pt',
+            # Path to model checkpoints stored locally
+            # f'{MODEL_DIR}/llama/selected/snli.pt',
+            # f'{MODEL_DIR}/llama/selected/mnli.pt',
+            # f'{MODEL_DIR}/llama/selected/sick.pt',
+            # f'{MODEL_DIR}/llama/selected/qnli.pt',
+            # f'{MODEL_DIR}/llama/selected/rte.pt',
+            # f'{MODEL_DIR}/llama/selected/scitail.pt',
 
+            #HF models IDs
+            'hoffman-lab/KnOTS-Llama3_8B_lora_R16_snli',
+            'hoffman-lab/KnOTS-Llama3_8B_lora_R16_mnli',
+            'hoffman-lab/KnOTS-Llama3_8B_lora_R16_sick',
+            'hoffman-lab/KnOTS-Llama3_8B_lora_R16_qnli',
+            'hoffman-lab/KnOTS-Llama3_8B_lora_R16_rte',
+            'hoffman-lab/KnOTS-Llama3_8B_lora_R16_scitail',
         ],
         'ft_config': {
             'type': 'lora',
