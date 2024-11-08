@@ -21,7 +21,7 @@ login(token=token)
 
 def run_BIG_function():
     CONFIG_NAME = 'llama8B_r16_knots_ties'
-    TASK_HEADS_PATH = "/srv/hoffman-lab/flash9/pramesh39/ModelMerging/ckpts/ingredients/all6_masked_zeroed_heads.pt"
+    TASK_HEADS_PATH = "heads.pt" #can be found on one-drive KnOTS_model_ckpts/Llama-3-8B/heads.pt
     COMPUTE_TRANSFORM = False
     EVAL_SPLIT = 'val'
     EVAL_TEST = True
