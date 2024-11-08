@@ -19,7 +19,7 @@ import scipy
 import random
 import string
 from transformers import AutoModelForSequenceClassification
-from peft import get_peft_model, LoraConfig
+from peft import get_peft_model, LoraConfig, PeftModel
 
 CONCEPT_TASKS  = list(string.ascii_uppercase)
 
@@ -485,8 +485,7 @@ def check_sd_almost_equal(base, desired, okay_set=None):
                 return False
     return True
 
-
-def prepare_llama(config):
+def prepare_llama(config, device):
     """Load LLama models from config."""
     bases = []
     peft_config = LoraConfig(task_type=config["peft_config"]["task_type"],
@@ -499,42 +498,46 @@ def prepare_llama(config):
     model_name_or_path = config['name']
     ptm_model = AutoModelForSequenceClassification.from_pretrained(
                     model_name_or_path, return_dict=True, cache_dir=config['cachedir'], num_labels = 3)
-    # pdb.set_trace()
     base_model = get_peft_model(ptm_model,peft_config)
     for idx, base_path in tqdm(enumerate(config['bases']), desc="Preparing Models", position=0, leave=True):
-        base_model.load_state_dict(torch.load(base_path, map_location='cpu'))
+        if base_path.endswith('.pt'):
+            base_model.load_state_dict(torch.load(base_path, map_location='cpu')) # Load fine-tuned model from local directory
+        else: 
+            base_model = PeftModel.from_pretrained(model = ptm_model, model_id = base_path) # Load model adapter from HF
         bases += [deepcopy(base_model)]
-    ptm_model_path = config['ptm_path']
-    base_model.load_state_dict(torch.load(ptm_model_path, map_location='cpu'))
+    # ptm_model_path = 'pretrained.pt' # load ptm_model from local directory
+    # base_model.load_state_dict(torch.load(ptm_model_path, map_location='cpu'))
+    ptm_model_path = 'hoffman-lab/KnOTS-Llama3_8B_lora_R16_pretrained_model'
+    base_model = PeftModel.from_pretrained(model = ptm_model, model_id = ptm_model_path) # Load ptm_model from HF
     return {
         'bases': bases,
         'new': base_model
     }
-
-
+    
 def prepare_hf_clip(config, device):
     """Load Hugging Face (HF) ViT models from config."""
     bases = []
     from models.huggingface_clip import get_model_from_config
     for idx, base_path in tqdm(enumerate(config['bases']), desc="Preparing Models", position=0, leave=True):
         base_model = get_model_from_config(config, device)
-        sd = torch.load(base_path, map_location=torch.device(device))
-        sd = replace_sd_keys(sd, 'lora_model', 'vision_model')
-        sd = replace_sd_keys(sd, 'linear_layer.', 'vision_head.')
-        sd = replace_sd_keys(sd, '.base_layer', '')
-        if not check_sd_almost_equal(base_model.state_dict(), sd, okay_set={'vision_model.base_model.model.embeddings.position_ids'}):
-            pdb.set_trace()
-            
-        base_model.load_state_dict(sd, strict=False)
-        bases += [base_model]
-    
+        if base_path.endswith('.pt'):
+            sd = torch.load(base_path, map_location=torch.device(device))
+            sd = replace_sd_keys(sd, 'lora_model', 'vision_model')
+            sd = replace_sd_keys(sd, 'linear_layer.', 'vision_head.')
+            sd = replace_sd_keys(sd, '.base_layer', '')
+            if not check_sd_almost_equal(base_model.state_dict(), sd, okay_set={'vision_model.base_model.model.embeddings.position_ids'}):
+                pdb.set_trace()
+            base_model.load_state_dict(sd, strict=False)
+        else: 
+            base_model.vision_model = PeftModel.from_pretrained(model = base_model.vision_model.base_model.model, model_id = base_path)
+            print(f"Loaded model from {base_path}")
+        bases += [deepcopy(base_model)]
     new_model = get_model_from_config(config, device)
     
     return {
         'bases': bases,
         'new': new_model
     }
-
 
 class ModelWrapper(torch.nn.Module):
     def __init__(self, model, feature_dim, num_classes, normalize=False, initial_weights=None):
