@@ -85,7 +85,7 @@ You can also define your own train/evaluation script and may use our scripts as 
 
 If you use KnOTS or this codebase in your work, please cite: 
 ```
-@article{stoica2024knots,
+@article{stoica2025knots,
       title={Model Merging with SVD to Tie the Knots}, 
       author={Stoica, George and Ramesh, Pratik and Ecsedi, Boglarka and Choshen, Leshem and Hoffman, Judy},
       journal={ICLR},
