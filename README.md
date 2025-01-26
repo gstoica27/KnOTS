@@ -1,4 +1,4 @@
-# Model Merging with SVD to Tie the KnOTS
+# Model Merging with SVD to Tie the KnOTS [ICLR 2025]
 
 This is the official implementation of **KnOTS** from our paper:
 
@@ -88,7 +88,7 @@ If you use KnOTS or this codebase in your work, please cite:
 @article{stoica2024knots,
       title={Model Merging with SVD to Tie the Knots}, 
       author={Stoica, George and Ramesh, Pratik and Ecsedi, Boglarka and Choshen, Leshem and Hoffman, Judy},
-      journal={arXiv},
-      year={2024},
+      journal={ICLR},
+      year={2025},
 }
 ```
